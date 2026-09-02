@@ -5,10 +5,9 @@ import org.orderService.models.OrderItem;
 import org.orderService.repositories.OrderRepository;
 import org.orderService.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -22,6 +21,11 @@ public class OrderController {
         Order saved = orderService.createOrder(order);
 
         return orderService.printOrderDetails(saved);
+    }
+
+    @GetMapping("/orders")
+    public List<Order> getOrders(){
+        return orderService.getOrders();
     }
 
 

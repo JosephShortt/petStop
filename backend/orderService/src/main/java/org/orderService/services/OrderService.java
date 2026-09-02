@@ -33,6 +33,10 @@ public class OrderService {
 
     }
 
+    public List<Order> getOrders(){
+        return orderRepository.findAll();
+    }
+
     public String printOrderDetails(Order order){
         Long id = order.getOrderNumber();
         String name = order.getFirstName()+" "+order.getSurname();

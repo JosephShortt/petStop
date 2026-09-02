@@ -1,5 +1,6 @@
 package org.orderService.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class OrderItem {
     @ManyToOne
     @JoinColumn(name = "order_id")
     @ToString.Exclude
+    @JsonIgnore
     private Order order;
 
     @ManyToOne
