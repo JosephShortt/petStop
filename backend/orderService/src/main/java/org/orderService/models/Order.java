@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class Order {
     private String firstName, surname, address;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> items;
+    private LocalDateTime timeStamp;
 
     public Order(String firstName, String surname, String address, List<OrderItem> items){
         this.firstName=firstName;

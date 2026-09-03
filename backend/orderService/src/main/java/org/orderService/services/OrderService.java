@@ -8,6 +8,7 @@ import org.orderService.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,6 +23,7 @@ public class OrderService {
     private OrderRepository orderRepository;
 
     public Order createOrder(Order order){
+        order.setTimeStamp(LocalDateTime.now());
         for (OrderItem item : order.getItems()){
             item.setOrder(order);
             Product fullProduct = productRepository.findById(item.getProduct().getProductId())
