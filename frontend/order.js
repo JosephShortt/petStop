@@ -26,6 +26,7 @@ async function placeOrder(){
         })
         const data = await response.text();
         console.log(data);
+        window.alert(data);
     }
     catch(error){
         console.log(error);

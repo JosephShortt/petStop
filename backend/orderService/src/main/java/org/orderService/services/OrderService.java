@@ -8,6 +8,7 @@ import org.orderService.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,12 +45,13 @@ public class OrderService {
         String name = order.getFirstName()+" "+order.getSurname();
         String address = order.getAddress();
         List<OrderItem> items = order.getItems();
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
         String out = "Order Number: "+id
                 +"\nName: "+name
                 +"\nAddress: "+address
                 +"\nItems: "+ Arrays.toString(items.toArray())
-                +"\nOrder Total Cost: "+ getTotalCost(items);
+                +"\nOrder Total Cost: "+ formatter.format(getTotalCost(items));
 
         return out;
     }
