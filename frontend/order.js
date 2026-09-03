@@ -1,9 +1,13 @@
-const firstName = document.getElementById("firstName").value;
-const surname = document.getElementById("surname").value;
-const address = document.getElementById("address").value;
+let firstName = null;
+let surname = null;
+let address = null;
 
 
 async function placeOrder(){
+    firstName = document.getElementById("firstName").value;
+    surname = document.getElementById("surname").value;
+    address = document.getElementById("address").value;
+
     const url = "http://localhost:8080/api/orders";
 
     try{
@@ -12,15 +16,16 @@ async function placeOrder(){
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({firstName,surname,address,items:[
-                {product: {productId: 1 },quantity:collarQuantity},
-                {product: {productId: 2 },quantity:leashQuantity},
-                {product: {productId: 3 },quantity:bowlQuantity}
+            body: JSON.stringify({firstName:firstName,surname:surname,address:address,items:[
+                {product: {productId: 1 },quantity:sessionStorage.getItem("collarQuantity")},
+                {product: {productId: 2 },quantity:sessionStorage.getItem("leashQuantity")},
+                {product: {productId: 3 },quantity:sessionStorage.getItem("bowlQuantity")}
             ]
 
             })
         })
-        console.log(response);
+        const data = await response.text();
+        console.log(data);
     }
     catch(error){
         console.log(error);
