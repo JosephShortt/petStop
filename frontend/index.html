@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Pet Stop</title>
+    </head>
+
+    <body>
+        <h1>Welcome to pet stop</h1>
+        <button onclick="document.location='./orderPage.html'">Checkout</button>
+        <h2>Choose from the following list of items to order:</h2>
+
+        <ul>
+            <li>Collar</li><label for="collarQuantity">Quanity</label><input type="number" id="collarQuantity">
+            <li>Leash</li><label for="leashQuantity">Quanity</label><input type="number" id="leashQuantity">
+            <li>Bowl</li><label for="bowlQuantity">Quanity</label><input type="number" id="bowlQuantity">
+        </ul>
+
+        <button onclick="saveItems()">Add items to basket</button>
+
+        <script src="./basket.js"></script>
+    </body>
+</html>
