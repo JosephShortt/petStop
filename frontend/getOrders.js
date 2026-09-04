@@ -25,10 +25,22 @@ async function getOrders(){
         //Generate table rows
         data.forEach(item => {
             const row = document.createElement('tr');
+
             keys.forEach(key => {
                 const td = document.createElement('td');
-                td.textContent = item[key] || ""; //fill empty with blank
+
+                if(key==="items"){
+                    td.textContent = item.items.map(orderItem => 
+                        orderItem.quantity + "x " + orderItem.product.productCategory
+                    ).join(", ")
+                }
+                else{
+                    td.textContent = item[key] || ""; //fill empty with blank
+                }
+                
                 row.appendChild(td);
+
+                
             });
             table.appendChild(row);
         })
@@ -43,3 +55,5 @@ async function getOrders(){
     }
     
 }
+
+
