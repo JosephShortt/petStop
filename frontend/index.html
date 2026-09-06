@@ -1,23 +1,23 @@
 <!DOCTYPE html>
+<meta charset="UTF-8">
 <html>
     <head>
         <title> Pet Stop</title>
+        <link rel="stylesheet" type="text/css" href="./style.css">
     </head>
 
     <body>
         <h1>Welcome to pet stop</h1>
         <button onclick="document.location='./orderPage.html'">Checkout</button>
         <button onclick="document.location='./allOrders.html'">All orders</button>
-        <h2>Choose from the following list of items to order:</h2>
 
-        <ul>
-            <li>Collar</li><label for="collarQuantity">Quanity</label><input type="number" id="collarQuantity">
-            <li>Leash</li><label for="leashQuantity">Quanity</label><input type="number" id="leashQuantity">
-            <li>Bowl</li><label for="bowlQuantity">Quanity</label><input type="number" id="bowlQuantity">
-        </ul>
-
-        <button onclick="saveItems()">Add items to basket</button>
-
+        <button onclick="getProducts()">Get products</button>
+        <div class="container">
+            <div id="product-container">
+                
+            </div>
+        </div>
+        <script src="./products.js"></script>
         <script src="./basket.js"></script>
         <script src="./order.js"></script>
     </body>

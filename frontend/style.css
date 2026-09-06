@@ -38,3 +38,9 @@ tfoot th {
 tfoot td {
   font-weight: bold;
 }
+
+.fit-picture{
+  width: 200px;
+  height: 200px;
+  display: block;
+}

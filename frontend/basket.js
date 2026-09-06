@@ -1,9 +1,7 @@
 
-function saveItems(){
-    sessionStorage.setItem("collarQuantity",parseInt(document.getElementById("collarQuantity").value));
-    sessionStorage.setItem("leashQuantity",parseInt(document.getElementById("leashQuantity").value));
-    sessionStorage.setItem("bowlQuantity",parseInt(document.getElementById("bowlQuantity").value));
-
+function saveItem(productId){
+    sessionStorage.setItem(productId,parseInt(document.getElementById(productId).value));
+   
     console.log("Basket Items:");
     console.log("Collar q="+sessionStorage.getItem("collarQuantity"));
     console.log("leash q="+sessionStorage.getItem("leashQuantity"));

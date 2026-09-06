@@ -7,6 +7,7 @@ async function placeOrder(){
     firstName = document.getElementById("firstName").value;
     surname = document.getElementById("surname").value;
     address = document.getElementById("address").value;
+    
 
     const url = "http://localhost:8080/api/orders";
 

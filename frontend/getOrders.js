@@ -23,7 +23,7 @@ async function getOrders(){
         });
         table.appendChild(headerRow);
         //Generate table rows
-        data.forEach(item => {
+        data.forEach(item => {  
             const row = document.createElement('tr');
 
             keys.forEach(key => {
