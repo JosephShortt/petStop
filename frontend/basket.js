@@ -23,9 +23,17 @@ async function getBasket(){
     for (const item of basketItems){
         const productName = await getProductName(item[0]);
         const li = document.createElement('li');
-        li.textContent = "Product Id: "+item[0] + " "+ productName + " Quantity: "+item[1];
+        const input = document.createElement('input');
+        input.value = item[1];
+        input.type = "number";
+        input.addEventListener('change', function(){
+            sessionStorage.setItem(item[0],input.value);
 
+        })
+        li.textContent = "Product Id: "+item[0] + " "+ productName + " Quantity: "+item[1];
+        
         ul.appendChild(li);
+        ul.appendChild(input);
     }
         
 
