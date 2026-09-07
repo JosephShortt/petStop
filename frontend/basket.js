@@ -24,6 +24,7 @@ async function getBasket(){
         const productName = await getProductName(item[0]);
         const li = document.createElement('li');
         li.id=item[0];
+
         const input = document.createElement('input');
         input.value = item[1];
         input.type = "number";
@@ -31,10 +32,20 @@ async function getBasket(){
             sessionStorage.setItem(item[0],input.value);
             document.getElementById(item[0]).innerText = "Product Id: "+item[0] + " "+ productName + " Quantity: "+sessionStorage.getItem(item[0]);
         })
+
+        const button = document.createElement('button');
+        button.id=item[0];
+        button.textContent="X";
+        button.addEventListener('click', function(){
+            sessionStorage.removeItem(button.id);
+        })
+
         li.textContent = "Product Id: "+item[0] + " "+ productName + " Quantity: "+item[1];
         li.id=item[0];
         ul.appendChild(li);
         ul.appendChild(input);
+        ul.appendChild(button);
+
     }
         
 
@@ -56,6 +67,10 @@ async function getProductName(id){
     catch(error){
         console.log(error);
     }
+}
+
+function removeItem(id){
+
 }
 
 getBasket();

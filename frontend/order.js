@@ -27,6 +27,9 @@ async function placeOrder(){
     catch(error){
         console.log(error);
     }
+
+    sessionStorage.clear();
+    window.location.replace("./thankYouPage.html");
 }
 
 function parseBasket(){
