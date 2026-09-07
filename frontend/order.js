@@ -17,12 +17,7 @@ async function placeOrder(){
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({firstName:firstName,surname:surname,address:address,items:[
-                {product: {productId: 1 },quantity:sessionStorage.getItem("collarQuantity")},
-                {product: {productId: 2 },quantity:sessionStorage.getItem("leashQuantity")},
-                {product: {productId: 3 },quantity:sessionStorage.getItem("bowlQuantity")}
-            ]
-
+            body: JSON.stringify({firstName:firstName,surname:surname,address:address,items:parseBasket()
             })
         })
         const data = await response.text();
@@ -32,4 +27,14 @@ async function placeOrder(){
     catch(error){
         console.log(error);
     }
+}
+
+function parseBasket(){
+    const items = [];
+
+    for(var i=1;i<=sessionStorage.length;i++){
+        items.push({product: {productId: i},quantity:sessionStorage.getItem(i)});
+    }
+
+    return items;
 }
