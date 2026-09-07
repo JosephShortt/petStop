@@ -16,4 +16,11 @@ public class ProductService {
     public List<Product> getProducts(){
         return productRepository.findAll();
     }
+
+    public String getProductName(Long id){
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product ID does not exist"));
+
+        return product.getProductCategory().toString();
+    }
 }

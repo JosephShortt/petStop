@@ -36,6 +36,13 @@ async function getProducts(){
                 }
 
             })
+            const button = document.createElement('button');
+            button.addEventListener('click', function(){
+                saveItem(item.productId);
+            });
+
+            button.innerText="Add to Basket";
+            innerDiv.appendChild(button);
             
             div.appendChild(innerDiv);
 
